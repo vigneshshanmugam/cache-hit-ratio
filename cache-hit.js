@@ -8,7 +8,7 @@
 
 		for (i = 0 ; i < resources.length; i++) {
 			resourceInfo = getResourceTimings(resources[i]);
-			entries[resourceInfo.url] = resourceInfo.duration;
+			entries[resourceInfo.url] = resourceInfo;
 		}
 
 		return entries;
@@ -23,6 +23,22 @@
 		return {
 			url : sanitizeUrl(resource.name),
 			duration: resource.duration
+		}
+	}
+
+	function getCacheHitRatioOfResouce(resource) {
+
+	}
+
+	function checkIfCacheHit(entries) {
+		for (var key in entries) {
+			if (entries.hasOwnProperty(key)) {
+				var entry = entries[key];
+
+				// if (w.localStorage.get(entry.name)) {
+
+				// }
+			}
 		}
 	}
 
