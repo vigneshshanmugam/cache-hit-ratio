@@ -79,6 +79,19 @@
 	}
 
 	function drawTimings(data) {
+		var container = d.createElement('div');
+		var ul = d.createElement('ul'), li;
+		ul.style.cssText = 'text-align:center;list-style-type:none';
+		for (var key in data) {
+			if (data.hasOwnProperty(key)) {
+				li = d.createElement('li');
+				li.innerHTML = data[key].url + ' - ' + data[key].cacheHitRatio;
+				ul.appendChild(li);
+			}
+		}
+		container.appendChild(ul);
+		container.style.cssText = 'background:#fff;border:2px solid #333;position:absolute;top:0;left:0;right:0;z-index:9999;padding:0;';
+		d.body.appendChild(container);
 	}
 
 	if(w.performance && w.performance.getEntriesByType) {
